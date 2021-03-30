@@ -1,5 +1,6 @@
 require 'rspec/core/rake_task'
 require 'git'
+require_relative '../lib/shared'
 
 RSpec::Core::RakeTask.new :spec do |t|
   t.fail_on_error = false
@@ -9,36 +10,20 @@ task :start do
   g = Git.init
   g.add
   g.commit('first commit')
-  g.branch('feature-1').checkout
-  system('touch feature-1.rb')
-  g.add
-  g.commit('feature 1 commit')
-  g.branch('feature-1a').checkout
-  system('touch feature-1a.rb')
-  g.add
-  g.commit('feature 1a commit')
-  g.branch('feature-1b').checkout
-  system('touch feature-1b.rb')
-  g.add
-  g.commit('feature 1b commit')
+
+  create_branch(g, 'feature-1')
+  create_branch(g, 'feature-1a')
+  create_branch(g, 'feature-1b')
+
   g.branch('master').checkout
-  g.branch('feature-2').checkout
-  system('touch feature-2.rb')
-  g.add
-  g.commit('feature 2 commit')
-  g.branch('feature-2a').checkout
-  system('touch feature-2a.rb')
-  g.add
-  g.commit('feature 2a commit')
+
+  create_branch(g, 'feature-2')
+  create_branch(g, 'feature-2a')
+
   g.branch('master').checkout
-  g.branch('feature-3').checkout
-  system('touch feature-3.rb')
-  g.add
-  g.commit('feature 3 commit')
-  g.branch('feature-3a').checkout
-  system('touch feature-3a.rb')
-  g.add
-  g.commit('feature 3a commit')
+
+  create_branch(g, 'feature-3')
+  create_branch(g, 'feature-3a')
 
   puts 'Succesfully built repo exercise'
 end
@@ -53,39 +38,7 @@ task :start_again do
   system('rm feature-3.rb')
   system('rm feature-3a.rb')
 
-  g = Git.init
-  g.add
-  g.commit('first commit')
-  g.branch('feature-1').checkout
-  system('touch feature-1.rb')
-  g.add
-  g.commit('feature 1 commit')
-  g.branch('feature-1a').checkout
-  system('touch feature-1a.rb')
-  g.add
-  g.commit('feature 1a commit')
-  g.branch('feature-1b').checkout
-  system('touch feature-1b.rb')
-  g.add
-  g.commit('feature 1b commit')
-  g.branch('master').checkout
-  g.branch('feature-2').checkout
-  system('touch feature-2.rb')
-  g.add
-  g.commit('feature 2 commit')
-  g.branch('feature-2a').checkout
-  system('touch feature-2a.rb')
-  g.add
-  g.commit('feature 2a commit')
-  g.branch('master').checkout
-  g.branch('feature-3').checkout
-  system('touch feature-3.rb')
-  g.add
-  g.commit('feature 3 commit')
-  g.branch('feature-3a').checkout
-  system('touch feature-3a.rb')
-  g.add
-  g.commit('feature 3a commit')
+  Rake::Task['start'].invoke
 
   puts 'Succesfully started exercise again'
 end
