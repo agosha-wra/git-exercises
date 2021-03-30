@@ -8,6 +8,8 @@ end
 
 task :start do
   g = Git.init
+  g.add
+  g.commit('first commit')
 
   create_branch(g, 'feature-1')
   create_branch(g, 'feature-1a')
