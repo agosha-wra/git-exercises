@@ -30,6 +30,15 @@ task :start do
   system('touch feature-2a.rb')
   g.add
   g.commit('feature 2a commit')
+  g.branch('master').checkout
+  g.branch('feature-3').checkout
+  system('touch feature-3.rb')
+  g.add
+  g.commit('feature 3 commit')
+  g.branch('feature-3a').checkout
+  system('touch feature-3a.rb')
+  g.add
+  g.commit('feature 3a commit')
 
   puts 'Succesfully built repo exercise'
 end
@@ -41,6 +50,8 @@ task :start_again do
   system('rm feature-1b.rb')
   system('rm feature-2.rb')
   system('rm feature-2a.rb')
+  system('rm feature-3.rb')
+  system('rm feature-3a.rb')
 
   g = Git.init
   g.add
@@ -66,6 +77,15 @@ task :start_again do
   system('touch feature-2a.rb')
   g.add
   g.commit('feature 2a commit')
+  g.branch('master').checkout
+  g.branch('feature-3').checkout
+  system('touch feature-3.rb')
+  g.add
+  g.commit('feature 3 commit')
+  g.branch('feature-3a').checkout
+  system('touch feature-3a.rb')
+  g.add
+  g.commit('feature 3a commit')
 
   puts 'Succesfully started exercise again'
 end
