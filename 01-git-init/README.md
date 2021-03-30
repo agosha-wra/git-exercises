@@ -5,4 +5,4 @@
 
 ## How to test
 - Just run the 'rake' command, when everything is green, you can go to the next exercise :)
-- Made a mess ? Delete the repo git deleting the .git folder and start again : 'rm -rf .git'
+- Made a mess ? Start again with 'rake start_again'
