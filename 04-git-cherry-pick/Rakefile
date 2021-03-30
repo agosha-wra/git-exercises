@@ -20,17 +20,24 @@ task :start do
   create_branch(g, 'feature-2')
   create_branch(g, 'feature-2a')
 
+  g.branch('master').checkout
+
+  create_branch(g, 'feature-3')
+  create_branch(g, 'feature-3a')
+
   puts 'Succesfully built repo exercise'
 end
 
 task :start_again do
+  system('rm -rf .git')
+
   system('rm feature-1.rb')
   system('rm feature-1a.rb')
   system('rm feature-1b.rb')
   system('rm feature-2.rb')
   system('rm feature-2a.rb')
-
-  system('rm -rf .git')
+  system('rm feature-3.rb')
+  system('rm feature-3a.rb')
 
   Rake::Task['start'].invoke
 
