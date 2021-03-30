@@ -1,25 +1,19 @@
-describe 'The Git Repo' do
+require 'git'
+
+describe 'The Git Repository' do
+  before(:all) do
+    @g = Git.open('./')
+  end
+
   it 'should exist' do
-    expect { system('git status') }
-      .to output(a_string_including('On branch'))
-      .to_stdout_from_any_process
+    expect(@g).to be_instance_of(Git::Base)
   end
 
   it 'should have a branch called my-feature' do
-    expect do
-      system('git checkout my-feature')
-      system('git branch --show-current')
-    end
-      .to output(a_string_including('my-feature'))
-      .to_stdout_from_any_process
+    expect(@g.branches.any? { |b| b.name == 'my-feature' }).to be true
   end
 
   it 'should have a commit in my-feature' do
-    expect do
-      system('git checkout my-feature')
-      system('git log')
-    end
-      .to output(a_string_including('Author'))
-      .to_stdout_from_any_process
+    expect(@g.branches['my-feature'].gcommit.size > 0).to be true
   end
 end

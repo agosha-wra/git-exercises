@@ -1,6 +1,73 @@
 require 'rspec/core/rake_task'
+require 'git'
+
 RSpec::Core::RakeTask.new :spec do |t|
   t.fail_on_error = false
+end
+
+task :start do
+  g = Git.init
+  g.add
+  g.commit('first commit')
+  g.branch('feature-1').checkout
+  system('touch feature-1.rb')
+  g.add
+  g.commit('feature 1 commit')
+  g.branch('feature-1a').checkout
+  system('touch feature-1a.rb')
+  g.add
+  g.commit('feature 1a commit')
+  g.branch('feature-1b').checkout
+  system('touch feature-1b.rb')
+  g.add
+  g.commit('feature 1b commit')
+  g.branch('master').checkout
+  g.branch('feature-2').checkout
+  system('touch feature-2.rb')
+  g.add
+  g.commit('feature 2 commit')
+  g.branch('feature-2a').checkout
+  system('touch feature-2a.rb')
+  g.add
+  g.commit('feature 2a commit')
+
+  puts 'Succesfully built repo exercise'
+end
+
+task :start_again do
+  system('rm feature-1.rb')
+  system('rm feature-1a.rb')
+  system('rm feature-1b.rb')
+  system('rm feature-2.rb')
+  system('rm feature-2a.rb')
+  system('rm -rf .git')
+
+  g = Git.init
+  g.add
+  g.commit('first commit')
+  g.branch('feature-1').checkout
+  system('touch feature-1.rb')
+  g.add
+  g.commit('feature 1 commit')
+  g.branch('feature-1a').checkout
+  system('touch feature-1a.rb')
+  g.add
+  g.commit('feature 1a commit')
+  g.branch('feature-1b').checkout
+  system('touch feature-1b.rb')
+  g.add
+  g.commit('feature 1b commit')
+  g.branch('master').checkout
+  g.branch('feature-2').checkout
+  system('touch feature-2.rb')
+  g.add
+  g.commit('feature 2 commit')
+  g.branch('feature-2a').checkout
+  system('touch feature-2a.rb')
+  g.add
+  g.commit('feature 2a commit')
+
+  puts 'Succesfully started exercise again'
 end
 
 task default: [:spec]

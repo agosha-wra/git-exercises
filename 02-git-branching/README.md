@@ -8,8 +8,7 @@
 
 ## How to test
 - Just run the 'rake' command, when everything is green, you can go to the next exercise :)
-- Before you rake, make sure all changes are commited. 
-- Made a mess ? just run rm -rf .git and start again from init 
+- Made a mess ? just run 'rake start_again' and start again from init 
 
 ## What is important here 
 - Notice how branches 1 and 2 are completely different commits with no knowledge of each other ? 
