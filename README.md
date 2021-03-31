@@ -9,7 +9,7 @@ Get all green tests = you have completed the exercise, kudos !
 
 On all exercises you can run : 
 
-rake ---> runs the test suite 
+rake ---> runs the test suite
 rake start_again --> resets the exercise 
 
 
