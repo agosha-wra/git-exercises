@@ -9,6 +9,11 @@
 
 We want to rebase both commits feature-2 and feature-2a on top of feature-1b. 
 
+             feature-2---feature-2a
+            /
+        master---feature-1---feature-1a---commit---feature-2---feature-2a
+                                                                    (feature-1b)
+
 ## How to test
 - Just run the 'rake' command, when everything is green, you can go to the next exercise :)
 - Made a mess ? just 'rake start_again'

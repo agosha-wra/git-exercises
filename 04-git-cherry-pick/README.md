@@ -16,8 +16,8 @@
 
              feature-2---feature-2a
             /
-        master---feature-1---feature-1a---feature-1b---feature-2---feature-3a
-            \
+        master---feature-1---feature-1a---commit---feature-2---feature-3a
+            \                                                      (feature-1b)
              feature-3---feature-3a---feature3b
 
 ## How to test

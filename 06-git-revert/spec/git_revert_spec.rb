@@ -9,20 +9,20 @@ describe 'The Git Repository' do
     expect(@g).to be_instance_of(Git::Base)
   end
 
-  it 'should have reverted the changes in branches feature-1a and 1b' do
+  it 'should have a master branch with commits that revert the changes in branches feature-1a and 1b' do
     array = []
     @g.diff('master', 'feature-1').each { |d| array << d }
     expect(array.any? { |d| d.path == 'feature-1a.rb' }).to be false
     expect(array.any? { |d| d.path == 'feature-1b.rb' }).to be false
   end
 
-  it 'should have reverted the changes in branch feature-2a' do
+  it 'should have a master branch with commits that revert the changes in branch feature-2a' do
     array = []
     @g.diff('master', 'feature-2').each { |d| array << d }
     expect(array.any? { |d| d.path == 'feature-2a.rb' }).to be false
   end
 
-  it 'should have reverted the changes in branch feature-3a' do
+  it 'should have a master branch with commits that revertthe changes in branch feature-3a' do
     array = []
     @g.diff('master', 'feature-3').each { |d| array << d }
     expect(array.any? { |d| d.path == 'feature-3a.rb' }).to be false

@@ -1,0 +1,54 @@
+require 'rspec/core/rake_task'
+require 'git'
+require_relative '../lib/shared'
+
+RSpec::Core::RakeTask.new :spec do |t|
+  t.fail_on_error = false
+end
+
+task :start do
+  g = Git.init
+  g.add
+  g.commit('first commit')
+
+  system('git init --bare remote')
+  system('git remote add origin remote')
+  system('git push origin master')
+
+  create_branch(g, 'feature-1')
+  system('git push origin feature-1')
+
+  g.branch('master').checkout
+
+  create_branch(g, 'feature-2')
+  system('git push origin feature-2')
+
+  g.branch('master').checkout
+
+  create_branch(g, 'feature-3')
+  system('git push origin feature-3')
+
+  g.branch('master').checkout
+
+  g.branch('feature-3').delete
+  g.branch('feature-2').delete
+  g.branch('feature-1').delete
+  g.reset_hard(g.log.last)
+
+  puts 'Succesfully built repo exercise'
+end
+
+task :start_again do
+  system('rm -rf remote')
+  system('rm -rf .git')
+
+  system('rm feature-1.rb')
+  system('rm feature-2.rb')
+  system('rm feature-3.rb')
+
+  Rake::Task['start'].invoke
+
+  puts 'Succesfully started exercise again'
+end
+
+task default: [:spec]
