@@ -4,3 +4,8 @@ def create_branch(git, string)
   git.add
   git.commit("#{string} commit")
 end
+
+def create_branch_and_push(git, string)
+  create_branch(git, string)
+  git.push(git.remote('origin'))
+end
