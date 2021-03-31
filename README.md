@@ -16,6 +16,6 @@ On some exercises you HAVE TO run before you do anything :
 rake start ---> sets up the exercise  
 
 How to use:   
-Clone this repo - git clone   
+Clone this repo - git clone git@github.com:agosha-wra/git-exercises.git
 Delete the .git folder for more clarity - rm -rf .git  
 Go into the first folder - cd 01-git-init 
