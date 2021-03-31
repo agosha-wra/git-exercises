@@ -14,6 +14,6 @@ describe 'The Git Repository' do
   end
 
   it 'should have a commit in my-feature' do
-    expect(@g.branches['my-feature'].gcommit.size > 0).to be true
+    expect(@g.branches['my-feature'].gcommit.empty?).to be false
   end
 end

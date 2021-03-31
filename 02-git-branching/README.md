@@ -6,6 +6,14 @@
 - Make a new branch from feature-2 called feature-2a, create a new file in that branch and commit
 - Checkout to feature-1a and make a new branch called feature-1b, create a new file in that branch and commit
 
+Our objective: 
+
+             feature-2---feature-2a
+            /
+        master---feature-1---feature-1a---feature-1b
+            \
+             feature-3---feature-3a---feature3b
+
 ## How to test
 - Just run the 'rake' command, when everything is green, you can go to the next exercise :)
 - Made a mess ? just run 'rake start_again' and start again from init 
