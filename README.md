@@ -1,6 +1,6 @@
 # git-exercises
 
-Exercises for practicing git commands and understand git repos.  
+Exercises for practicing git commands and understanding git repos.  
 
 # How to install
 
