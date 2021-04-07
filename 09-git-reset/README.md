@@ -3,9 +3,9 @@
 
 - We start from our repo: 
 
-    master---feature-1---feature-2---feature-3---feature-4---feature-5
-          \
-            feature-a---feature-b---feature-c
+         master---feature-1---feature-2---feature-3---feature-4---feature-5
+                \
+                  feature-a---feature-b---feature-c
 
 
 - We want to reset feature-5 to the feature-3 commit and discard the changes in the feature-5 commit.
