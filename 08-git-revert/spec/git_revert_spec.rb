@@ -22,7 +22,7 @@ describe 'The Git Repository' do
     expect(array.any? { |d| d.path == 'feature-2a.rb' }).to be false
   end
 
-  it 'should have a master branch with commits that revertthe changes in branch feature-3a' do
+  it 'should have a master branch with commits that revert the changes in branch feature-3a' do
     array = []
     @g.diff('master', 'feature-3').each { |d| array << d }
     expect(array.any? { |d| d.path == 'feature-3a.rb' }).to be false

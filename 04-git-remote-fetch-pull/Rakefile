@@ -42,9 +42,7 @@ task :start_again do
   system('rm -rf remote')
   system('rm -rf .git')
 
-  system('rm feature-1.rb')
-  system('rm feature-2.rb')
-  system('rm feature-3.rb')
+  system('rm *.rb')
 
   Rake::Task['start'].invoke
 

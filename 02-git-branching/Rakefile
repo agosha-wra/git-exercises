@@ -6,6 +6,7 @@ end
 
 task :start_again do |_t|
   system('rm -rf .git')
+  system('rm *.rb')
 end
 
 task default: [:spec]

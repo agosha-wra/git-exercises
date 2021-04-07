@@ -24,12 +24,7 @@ task :start do
 end
 
 task :start_again do
-  system('rm feature-1.rb')
-  system('rm feature-1a.rb')
-  system('rm feature-1b.rb')
-  system('rm feature-2.rb')
-  system('rm feature-2a.rb')
-
+  system('rm *.rb')
   system('rm -rf .git')
 
   Rake::Task['start'].invoke

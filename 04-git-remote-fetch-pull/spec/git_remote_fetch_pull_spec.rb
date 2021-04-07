@@ -11,12 +11,12 @@ describe 'The Git Repository' do
 
   it 'should have a feature-2 branch that is the same as origin/feature-2' do
     expect(@g.branches.local.any? { |b| b.name == 'feature-2' }).to be true
-    expect(@g.diff('feature-2', 'origin/feature-2').size == 0).to be true
+    expect(@g.diff('feature-2', 'origin/feature-2').size.zero?).to be true
   end
 
   it 'should have a feature-3 branch that is the same as origin/feature-3' do
     expect(@g.branches.local.any? { |b| b.name == 'feature-3' }).to be true
-    expect(@g.diff('feature-3', 'origin/feature-3').size == 0).to be true
+    expect(@g.diff('feature-3', 'origin/feature-3').size.zero?).to be true
   end
 
   it 'should not have a feature-1 branch' do
@@ -28,6 +28,6 @@ describe 'The Git Repository' do
   end
 
   it 'should have the changes in feature-4 pushed to origin/feature-4' do
-    expect(@g.diff('feature-4', 'origin/feature-4').size == 0).to be true
+    expect(@g.diff('feature-4', 'origin/feature-4').size.zero?).to be true
   end
 end

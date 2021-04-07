@@ -16,7 +16,7 @@ describe 'The Git Repository' do
   end
 
   it 'should have the changes in my-feature pushed to origin/my-feature' do
-    expect(@g.diff('my-feature', 'origin/my-feature').size == 0).to be true
+    expect(@g.diff('my-feature', 'origin/my-feature').size.zero?).to be true
   end
 
   it 'should have a pull request for my-feature in the remote' do
