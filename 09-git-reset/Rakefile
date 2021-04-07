@@ -12,18 +12,16 @@ task :start do
   g.commit('first commit')
 
   create_branch(g, 'feature-1')
-  create_branch(g, 'feature-1a')
-  create_branch(g, 'feature-1b')
-
-  g.branch('master').checkout
-
   create_branch(g, 'feature-2')
-  create_branch(g, 'feature-2a')
-
-  g.branch('master').checkout
-
   create_branch(g, 'feature-3')
-  create_branch(g, 'feature-3a')
+  create_branch(g, 'feature-4')
+  create_branch(g, 'feature-5')
+
+  g.checkout('master')
+
+  create_branch(g, 'feature-a')
+  create_branch(g, 'feature-b')
+  create_branch(g, 'feature-c')
 
   puts 'Succesfully built repo exercise'
 end
