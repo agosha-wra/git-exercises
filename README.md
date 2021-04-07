@@ -1,21 +1,32 @@
 # git-exercises
 
 Exercises for practicing git commands and understand git repos.  
-Needs: Ruby, Rspec, Ruby-Git. 
 
-I made these exercises for people wanting to better understand Git commands.  
-Each folder has an exercise with a readme explaining the rules and a set of tests.  
-Get all green tests = you have completed the exercise, kudos ! 
+# How to install
 
-On all exercises you can run :  
-rake ---> runs the test suite  
-rake start_again --> resets the exercise 
+- Do not clone this repo, just download the files as a zip and copy them somewhere. 
+- Install required gems: 
+```
+gem install rspec ruby-git
+```
 
+# Who are these made for
 
-On some exercises you HAVE TO run before you do anything :  
-rake start ---> sets up the exercise  
+I made these exercises for beginners wanting to better understand Git commands, and having a nice playground to try things since git can be daunting at first. 
 
-How to use:   
-Clone this repo - git clone git@github.com:agosha-wra/git-exercises.git  
-Delete the .git folder for more clarity - rm -rf .git  
-Go into the first folder - cd 01-git-init 
+ - Each folder has an exercise with a readme explaining the rules and a set of tests.  
+ - Get all green tests = you have completed the exercise, kudos ! 
+
+# On all exercises you can run this to check if you have the solution
+```
+rake
+````  
+# On most exercises - follow the guidelines! - you can run
+- To start the exercise
+```
+rake start
+```
+- To start again
+```
+rake start_again 
+```
