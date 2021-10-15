@@ -4,6 +4,7 @@ Exercises for practicing git commands and understanding git repos.
 
 # How to install
 
+- Needs Ruby 2.7 or better
 - Do not clone this repo, just download the files as a zip and copy them somewhere. 
 - Install required gems: 
 ```
