@@ -4,7 +4,7 @@ require 'json'
 
 describe 'The Git Repository' do
   before(:all) do
-    @g = Git.open('./git-exercises/')
+    @g = Git.open('./')
   end
 
   it 'should exist' do
